@@ -1,0 +1,27 @@
+GOVERNMENT OF KARNATAKA - DEPARTMENT OF AGRICULTURE
+SOIL HEALTH CARD (SHC) - SOIL TESTING LABORATORY, MANDYA
+---------------------------------------------------------------------------------
+Card No: SHC/KA/MDY/2026/04812
+Farmer Name: Ningappa Gowda
+Village: Shivalli, Taluk: Maddur, District: Mandya, Karnataka
+Survey Number: 42/1B
+Sample Date: 14-Aug-2026
+Test Method Standards: ICAR / UAS Bengaluru
+
+TEST PARAMETERS AND DIAGNOSTIC RESULTS:
+1. Available Nitrogen (N) (Alkaline Permanganate): 180 kg/ha  [LOW / DEFICIENT]
+2. Available Phosphorus (P2O5) (Olsen Method):     38 kg/ha   [MEDIUM / ADEQUATE]
+3. Available Potassium (K2O) (Ammonium Acetate):   120 kg/ha  [LOW / DEFICIENT]
+4. Soil Reaction (pH) (1:2.5 suspension):          8.1        [MODERATELY ALKALINE]
+5. Electrical Conductivity (EC) (1:2 extract):     0.45 dS/m  [NORMAL / NON-SALINE]
+6. Organic Carbon (OC) (Walkley-Black):            0.35 %     [LOW / DEFICIENT]
+7. Available Sulphur (S) (0.15% CaCl2):            8.2 ppm    [DEFICIENT]
+8. Available Zinc (Zn) (DTPA Extraction AAS):      0.42 ppm   [DEFICIENT]
+9. Available Iron (Fe) (DTPA Extraction AAS):      6.8 ppm    [SUFFICIENT]
+10. Available Copper (Cu) (DTPA Extraction AAS):   0.48 ppm   [SUFFICIENT]
+11. Available Manganese (Mn) (DTPA Extraction AAS): 3.5 ppm   [SUFFICIENT]
+12. Available Boron (B) (Hot Water Soluble):       0.35 ppm   [DEFICIENT]
+---------------------------------------------------------------------------------
+Agronomic Observation: Alkaline soil with low available nitrogen, low available potassium,
+low organic carbon, and deficient zinc and boron. Requires STCR-adjusted fertilization
+and organic carbon augmentation.

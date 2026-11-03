@@ -1,0 +1,13 @@
+{
+  "name": "agrosense-ai-workspace",
+  "version": "1.0.0",
+  "description": "AgroSense AI - AI-Based Soil Report Analysis and Precision Irrigation Advisory System",
+  "scripts": {
+    "dev:backend": "cd backend && npm start",
+    "dev:frontend": "cd frontend && npm run dev",
+    "build:frontend": "cd frontend && npm run build"
+  },
+  "keywords": ["agritech", "precision-irrigation", "soil-testing", "icar", "karnataka", "ai-advisory"],
+  "author": "AgroSense AI Team",
+  "license": "MIT"
+}

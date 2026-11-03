@@ -1,0 +1,35 @@
+SOIL TEST REPORT - LAWN & GARDEN
+COOPERATIVE EXTENSION - UNIVERSITY OF WISCONSIN-EXTENSION
+University of Wisconsin-Madison, Department of Soil Science
+Samples Analyzed By: UW Soil & Plant Analysis Lab, Verona, WI 53593 (608) 262-4364
+-----------------------------------------------------------------------------------------
+Lab Number: 54321 | Date Received: 8/1/2007 | Date Processed: 8/10/2007 | Account: 555800
+Client: Bucky Badger | County: Dane
+Send to: Bucky Badger
+Area Type: Garden/Vegetable | Area Designation: Garden
+
+RECOMMENDATIONS:
+- Lime to Apply: No soil pH adjustment is recommended (pH 6.2 is optimum).
+- Actual Nutrient Need (lbs/100 ft²):
+  * Nitrogen (N):         0.30 lbs/100 ft²
+  * Phosphate (P2O5):     1.0 lbs/100 ft²
+  * Potash (K2O):         1.5 lbs/100 ft²
+
+Fertilizer to Apply:
+- Nitrogen: Needed nitrogen will be supplied with the phosphate and/or potash recommendations below.
+- Phosphate: Apply 2.5 lbs of starter turf fertilizer per 100 sq-ft annually for 2 years to meet plant phosphate needs.
+- Potash: Apply 2.5 lbs of winterizer turf fertilizer per 100 sq-ft annually for 3 years to meet plant potash needs.
+
+Cultural and Management Tips:
+- Leafy vegetables, sweet corn, tomatoes, and vine crops may require additional nitrogen at flowering.
+- Place about 1 oz (2 Tbl) urea or 4 Tbl of a high nitrogen fertilizer in a band at least 3 inches from the plant.
+- Use 1.5 lbs (3 cups) urea for every 100 ft of row.
+
+LABORATORY ANALYSIS RESULTS:
+Sample: 2 (Garden / Vegetable)
+- pH:                   6.2   [Optimum range 5.7 - 6.8]
+- Phosphorus [P]:        25 ppm [LOW - Reference range: 14-30 Low, 30-45 Sufficient]
+- Potassium [K]:         45 ppm [VERY LOW - Reference range: <59 Very Low, 59-120 Low]
+- Organic Matter:       3.1 % [Sufficient / High organic carbon content]
+-----------------------------------------------------------------------------------------
+UW Soil & Plant Analysis Lab - Web Copy Page 2
