@@ -44,54 +44,83 @@ async function safeFetch(url: string, options: RequestInit = {}): Promise<any> {
 export async function uploadReportApi(file?: File, sampleId?: string): Promise<SoilReport> {
   try {
     if (file) {
+      // Real PDF upload — multipart/form-data to Flask backend
       const formData = new FormData();
       formData.append('reportFile', file);
+
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 30000); // 30s for PDF parsing
+
       const res = await fetch(`${API_BASE_URL}/reports/upload`, {
         method: 'POST',
-        body: formData
+        body: formData,
+        signal: controller.signal,
       });
+      clearTimeout(timeoutId);
+
       if (res.ok) {
         const json = await res.json();
-        return json.report;
+        if (json?.report) {
+          // Map backend response to SoilReport type
+          const r = json.report;
+          return {
+            id: r.id || `rep_${Date.now()}`,
+            title: r.title || file.name,
+            farmerName: r.farmerName || 'Self-Uploaded',
+            laboratoryName: r.laboratoryName || 'AI-Parsed Laboratory Report',
+            reportDate: r.reportDate || new Date().toISOString().split('T')[0],
+            reportType: r.reportType || 'AI-Parsed Soil Report',
+            district: r.district || 'Karnataka',
+            surveyNumber: r.surveyNumber || '',
+            confidenceScore: r.confidenceScore ?? 0.92,
+            verificationStatus: 'PENDING_VERIFICATION',
+            parameters: r.parameters || {},
+            notes: r.extraction_status === 'FALLBACK'
+              ? 'Note: Backend AI unavailable. Default parameters used — please verify values manually.'
+              : `AI-extracted from PDF with ${Math.round((r.confidenceScore || 0.92) * 100)}% confidence.`,
+          };
+        }
       }
     } else if (sampleId) {
       const json = await safeFetch(`${API_BASE_URL}/reports/upload`, {
         method: 'POST',
-        body: JSON.stringify({ sampleId })
+        body: JSON.stringify({ sampleId }),
       });
       if (json?.report) return json.report;
     }
   } catch (err) {
-    console.info('Backend unreachable, using client-side report parsing.');
+    console.info('Backend unreachable for PDF upload, using client-side simulation.');
   }
 
-  // Fallback to simulated extraction
+  // Fallback: simulated extraction when backend is unavailable
   return {
     id: `rep_${Date.now()}`,
-    title: file?.name || 'Uploaded Soil Report',
+    title: file?.name?.replace('.pdf', '').replace(/_/g, ' ') || 'Uploaded Soil Report',
     farmerName: 'Self-Uploaded Report',
     laboratoryName: 'Diagnostic Soil Testing Laboratory',
     reportDate: new Date().toISOString().split('T')[0],
-    reportType: 'Diagnostic Testing Certificate',
-    district: 'Mandya',
-    confidenceScore: 0.94,
+    reportType: 'Uploaded Soil Laboratory Document',
+    district: 'Karnataka',
+    confidenceScore: 0.50,
     verificationStatus: 'PENDING_VERIFICATION',
+    notes: 'Backend not reachable. These are estimated values — please edit and verify each parameter before proceeding.',
     parameters: {
-      nitrogen: { value: 190, unit: 'kg/ha', method: 'Alkaline Permanganate', confidence: 0.95 },
-      phosphorus: { value: 36, unit: 'kg/ha', method: 'Olsen NaHCO3', confidence: 0.92 },
-      potassium: { value: 125, unit: 'kg/ha', method: 'Neutral Normal NH4OAc', confidence: 0.96 },
-      ph: { value: 8.0, unit: 'pH unit', method: '1:2.5 Potentiometric', confidence: 0.99 },
-      ec: { value: 0.48, unit: 'dS/m', method: 'Conductivity Meter', confidence: 0.96 },
-      organicCarbon: { value: 0.36, unit: '%', method: 'Walkley-Black Titration', confidence: 0.91 },
-      sulphur: { value: 8.8, unit: 'ppm', method: '0.15% CaCl2 Turbidimetry', confidence: 0.88 },
-      zinc: { value: 0.44, unit: 'ppm', method: 'DTPA Extraction AAS', confidence: 0.92 },
-      iron: { value: 6.5, unit: 'ppm', method: 'DTPA Extraction AAS', confidence: 0.90 },
-      copper: { value: 0.45, unit: 'ppm', method: 'DTPA Extraction AAS', confidence: 0.89 },
-      manganese: { value: 3.2, unit: 'ppm', method: 'DTPA Extraction AAS', confidence: 0.87 },
-      boron: { value: 0.36, unit: 'ppm', method: 'Hot Water Soluble Azomethine-H', confidence: 0.90 }
-    }
+      nitrogen:      { value: 185, unit: 'kg/ha', method: 'Estimated',                  confidence: 0.50 },
+      phosphorus:    { value: 34,  unit: 'kg/ha', method: 'Estimated',                  confidence: 0.50 },
+      potassium:     { value: 122, unit: 'kg/ha', method: 'Estimated',                  confidence: 0.50 },
+      ph:            { value: 7.8, unit: 'pH unit', method: 'Estimated',                confidence: 0.50 },
+      ec:            { value: 0.46,unit: 'dS/m',  method: 'Estimated',                  confidence: 0.50 },
+      organicCarbon: { value: 0.36,unit: '%',     method: 'Estimated',                  confidence: 0.50 },
+      sulphur:       { value: 8.5, unit: 'ppm',   method: 'Estimated',                  confidence: 0.50 },
+      zinc:          { value: 0.44,unit: 'ppm',   method: 'Estimated',                  confidence: 0.50 },
+      iron:          { value: 6.5, unit: 'ppm',   method: 'Estimated',                  confidence: 0.50 },
+      copper:        { value: 0.45,unit: 'ppm',   method: 'Estimated',                  confidence: 0.50 },
+      manganese:     { value: 3.2, unit: 'ppm',   method: 'Estimated',                  confidence: 0.50 },
+      boron:         { value: 0.36,unit: 'ppm',   method: 'Estimated',                  confidence: 0.50 },
+    },
   };
 }
+
 
 export async function analyzeSoilApi(params: SoilParametersMap, lang: Language): Promise<SoilAnalysisSummary> {
   try {

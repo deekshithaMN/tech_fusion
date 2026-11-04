@@ -296,3 +296,55 @@ export interface CropDiagnosis {
   confidenceScore: number;
   uncertaintyWarning: string;
 }
+
+// ─── Precision Irrigation Advisory Types ─────────────────────────────────────
+
+export interface IrrigationStageEntry {
+  stageKey: string;
+  stageName: string;
+  kc: number;
+  et0_mm: number;
+  etc_mm: number;
+  grossMm: number;
+  dailyLitres: number;
+  weeklyLitres: number;
+  durationDays: number;
+  availableWaterMm: number;
+}
+
+export interface SoilTextureProfile {
+  key: string;
+  name: string;
+  description: string;
+  whcMmPer100mm: number;
+}
+
+export interface StageWiseIrrigationAdvisory {
+  cropName: string;
+  farmArea: { value: number; unit: string; acres: number };
+  irrigationMethod: string;
+  efficiency: number;
+  soilTexture: SoilTextureProfile;
+  et0BaseLine: number;
+  timeline: IrrigationStageEntry[];
+  currentStage: IrrigationStageEntry;
+  totalSeasonalLitres: number;
+  weeklyLitres: number;
+}
+
+export interface SoilWaterProfile {
+  texture: string;
+  textureDisplayName: string;
+  whcMmPer100mm: number;
+  waterHoldingCategory: 'low' | 'moderate' | 'high';
+  irrigationFrequencyAdvice: string;
+  organicCarbonEffect: string;
+}
+
+export interface PdfUploadState {
+  status: 'idle' | 'reading' | 'analyzing' | 'done' | 'error';
+  progress: number; // 0–100
+  errorMessage?: string;
+  extractedParams?: Record<string, { value: number | null; unit: string; confidence?: number; status?: string }>;
+  reportPreview?: SoilReport;
+}

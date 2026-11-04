@@ -2479,3 +2479,55 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+/* ─── Global Animation Keyframes ───────────────────────────────────────────── */
+@keyframes spin {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+@keyframes pulse-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(45, 106, 79, 0.25); }
+  50%       { box-shadow: 0 0 0 8px rgba(45, 106, 79, 0); }
+}
+
+@keyframes slide-up {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+@keyframes progress-fill {
+  from { width: 0%; }
+  to   { width: 100%; }
+}
+
+/* ─── PDF Upload Zone ─────────────────────────────────────────────────────── */
+.pdf-upload-scanning {
+  animation: pulse-glow 1.5s ease-in-out infinite;
+}
+
+/* ─── Irrigation Dashboard ────────────────────────────────────────────────── */
+.irr-stage-bar {
+  transition: width 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.irr-instruction-card {
+  animation: slide-up 0.3s ease both;
+}
+
+.irr-kpi-card {
+  transition: transform 0.15s ease, box-shadow 0.15s ease;
+}
+
+.irr-kpi-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* Responsive irrigation dashboard */
+@media (max-width: 600px) {
+  .irr-timeline-stage {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+}

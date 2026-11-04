@@ -16,13 +16,13 @@
 Indian agriculture sustains over 140 million farming households, yet smallholder farmers face severe structural and information barriers when translating laboratory science into field actions:
 
 ```
-\\\[ Lab Soil Report ] ----(Technical Jargon)----> \\\[ Farmer Confusion ] ----> \\\[ Arbitrary Chemical Dosing ]
+\\\\\\\\\\\\\\\[ Lab Soil Report ] ----(Technical Jargon)----> \\\\\\\\\\\\\\\[ Farmer Confusion ] ----> \\\\\\\\\\\\\\\[ Arbitrary Chemical Dosing ]
         |                                                                           |
-        +----(Ignored Soil Chemistry)----> \\\[ Crop Visual Disease ] <----------------+
+        +----(Ignored Soil Chemistry)----> \\\\\\\\\\\\\\\[ Crop Visual Disease ] <----------------+
                                                     |
                                                     v
-                                      \\\[ Wrong Pesticide Sprays ]
-                                      \\\[ Water \\\& Yield Loss ]
+                                      \\\\\\\\\\\\\\\[ Wrong Pesticide Sprays ]
+                                      \\\\\\\\\\\\\\\[ Water \\\\\\\\\\\\\\\& Yield Loss ]
 ```
 
 ### Key Challenges Faced by Farmers:
@@ -107,7 +107,17 @@ $$\\text{Volume (Litres)} = \\text{Gross Depth (mm)} \\times \\text{Farm Area (a
 
 * Formatted printable sheet (`window.print()` with `@media print` clean layout) containing farmer profile, soil health breakdown, commercial bag checklist, application timetable, irrigation plan, and scientific citations.
 
+
+
 \---
+
+## Team Name:Tech Fusion 
+
+**1.sunil MR - sunilmr.mca25@suranacollege.edu.in**
+
+**2.Deekshitha MN - deekshithamn.mca25@suranacollege.edu.in**
+
+## 
 
 ## 🚀 Getting Started \& Local Execution
 
@@ -138,10 +148,10 @@ The backend starts on [http://localhost:5000](http://localhost:5000) with health
 
 ### 3\. Python Flask Backend
 
-A complete Python Flask backend implementation is provided in `backend/flask\_app/`:
+A complete Python Flask backend implementation is provided in `backend/flask\\\\\\\_app/`:
 
 ```bash
-cd backend/flask\_app
+cd backend/flask\\\\\\\_app
 pip install -r requirements.txt
 python app.py
 ```
